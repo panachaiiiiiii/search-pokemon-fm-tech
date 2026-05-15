@@ -1,3 +1,5 @@
+import Pokemon from "../pokemon/[name]/page";
+
 export type Attack = {
   name: string;
   type: string;
@@ -57,4 +59,17 @@ export type PokemonData = {
 
 export type PokemonVariables = {
   name: string;
+};
+
+export type PokemonCard = {
+  id: string;
+  number: string;
+
+  name: string;
+  image: string;
+  classification: string;
+  types: string[];
+};
+export type PokemonCardData = {
+pokemons: PokemonCard[];
 };
