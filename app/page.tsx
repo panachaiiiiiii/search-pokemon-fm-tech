@@ -6,6 +6,7 @@ import { useQuery } from "@apollo/client/react";
 
 import { GET_POKEMON_ALL } from "./graphql/getPokemon";
 import { PokemonCardData } from "./type/pokemon";
+import { PokemonCard  } from "./pokemon/component/card/PokemonCard ";
 
 const { Title } = Typography;
 const { Search } = Input;
@@ -20,27 +21,6 @@ export default function HomePage() {
   };
 
   const { data, loading, error } = useQuery<PokemonCardData>(GET_POKEMON_ALL);
-
-  const typeColors: Record<string, string> = {
-    Fire: "bg-red-400 ",
-    Water: "bg-blue-400",
-    Grass: "bg-green-400",
-    Electric: "bg-yellow-300",
-    Poison: "bg-purple-500",
-    Flying: "bg-sky-300",
-    Ground: "bg-amber-600",
-    Rock: "bg-stone-500",
-    Fighting: "bg-red-700",
-    Psychic: "bg-pink-500",
-    Bug: "bg-lime-500",
-    Dragon: "bg-indigo-600",
-    Fairy: "bg-pink-300",
-    Ice: "bg-cyan-300",
-    Ghost: "bg-violet-700",
-    Dark: "bg-gray-700",
-    Steel: "bg-slate-400",
-    Normal: "bg-zinc-400",
-  };
 
   if (loading) {
     return (
@@ -85,50 +65,9 @@ export default function HomePage() {
         {/* Cards */}
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
           {data?.pokemons.map((pokemon) => {
-            return (
-              <div
-                key={pokemon.id}
-                className="overflow-hidden rounded-3xl p-5 shadow-lg transition duration-300 hover:-translate-y-2 hover:shadow-2xl bg-white border-4 border-amber-300"
-              >
-                {/* Pokemon Number */}
-                <p className="text-sm font-semibold text-black">
-                  #{pokemon.number}
-                </p>
-
-                {/* Image */}
-                <img
-                  src={pokemon.image}
-                  alt={pokemon.name}
-                  className="mx-auto h-36 w-36 object-contain "
-                />
-
-                {/* Name */}
-                <h1 className="mt-3 text-center text-2xl font-extrabold text-black capitalize">
-                  {pokemon.name}
-                </h1>
-
-                {/* Classification */}
-                <p className="mt-1 text-center text-sm text-black">
-                  {pokemon.classification}
-                </p>
-
-                {/* Types */}
-                <div className="mt-4 flex flex-wrap justify-center gap-2">
-                  {pokemon.types.map((type) => (
-                    <span
-                      key={type}
-                      className={`rounded-full px-3 py-1 text-sm font-medium text-white backdrop-blur-md ${typeColors[type]}`}
-                    >
-                      {type}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            );
+            return <PokemonCard pokemon={pokemon} key={pokemon.id} />;
           })}
         </div>
-
-        
       </div>
     </div>
   );

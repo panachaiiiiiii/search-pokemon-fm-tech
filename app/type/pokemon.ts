@@ -61,7 +61,7 @@ export type PokemonVariables = {
   name: string;
 };
 
-export type PokemonCard = {
+export type PokemonCardType = {
   id: string;
   number: string;
 
@@ -71,5 +71,5 @@ export type PokemonCard = {
   types: string[];
 };
 export type PokemonCardData = {
-pokemons: PokemonCard[];
+pokemons: PokemonCardType[];
 };
