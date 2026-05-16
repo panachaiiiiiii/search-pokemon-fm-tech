@@ -11,7 +11,7 @@ interface Props {
 
 export const PokemonCard = ({ pokemon }: Props) => {
   return (
-    <Link href={`/pokemon/${pokemon.name.toLowerCase()}`}>
+    <Link data-testid={`pokemon-card${pokemon.id}`} href={`/pokemon/${pokemon.name.toLowerCase()}`}>
       <div
         className={`overflow-hidden rounded-3xl border-4  border-amber-300  p-3 shadow-lg transition duration-300 hover:-translate-y-2 hover:shadow-2xl bg-white `}
       >

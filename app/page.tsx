@@ -33,7 +33,7 @@ export default function HomePage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-800  ">
+    <div className="min-h-screen  ">
       <div className="mx-auto max-w-7xl">
         {/* Header */}
         <div className="mb-10 text-center">

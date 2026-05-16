@@ -13,7 +13,7 @@ export default function RootLayout({
     <html 
       lang="en"
     >
-      <body >
+      <body className="bg-gray-800" >
         <AntdRegistry>
         <Providers>{children}</Providers>
         </AntdRegistry>
