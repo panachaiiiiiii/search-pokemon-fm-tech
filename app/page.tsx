@@ -1,6 +1,6 @@
 "use client";
 
-import { Input, Pagination, Typography } from "antd";
+import { Input, Typography } from "antd";
 import { useRouter } from "next/navigation";
 import { useQuery } from "@apollo/client/react";
 
@@ -16,7 +16,6 @@ export default function HomePage() {
 
   const handleSearch = (value: string) => {
     if (!value) return;
-
     router.push(`/pokemon/${value.toLowerCase()}`);
   };
 

@@ -18,3 +18,4 @@ export const typeColors: Record<string, string> = {
     Steel: "bg-slate-400",
     Normal: "bg-zinc-400",
   };
+
