@@ -1,5 +1,6 @@
 import { Pokemon } from "@/app/type/pokemon";
 import Link from "next/link";
+import Image from "next/image";
 interface Props {
   pokemon: Pokemon;
 }
@@ -15,7 +16,7 @@ export const Evolutions = ({ pokemon }: Props) => {
             href={`/pokemon/${evo.name.toLowerCase()}`}
           >
             <div className="rounded-2xl p-4 text-center border-3 border-amber-200">
-              <img
+              <Image
                 src={evo.image}
                 alt={evo.name}
                 className="mx-auto min-w-10 min-h-10 h-28 w-28"

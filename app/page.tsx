@@ -1,6 +1,6 @@
 "use client";
 
-import { Input, Typography } from "antd";
+import { Input } from "antd";
 import { useRouter } from "next/navigation";
 import { useQuery } from "@apollo/client/react";
 import { GET_POKEMON_ALL } from "./graphql/getPokemon";
@@ -8,7 +8,6 @@ import { PokemonCardData } from "./type/pokemon";
 import { PokemonCard } from "./pokemon/component/card/PokemonCard ";
 import Link from "next/link";
 import Image from "next/image";
-const { Title } = Typography;
 const { Search } = Input;
 
 export default function HomePage() {

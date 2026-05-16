@@ -1,5 +1,6 @@
 import { typeColors } from "@/app/constants/typeColors";
 import { Pokemon } from "../../../type/pokemon";
+import Image from "next/image";
 interface Props {
   pokemon: Pokemon;
 }
@@ -16,7 +17,7 @@ export const CardInfo = ({ pokemon }: Props) => {
         <p className="text-xl font-bold text-gray-400">#{pokemon.number}</p>
       </div>
 
-      <img
+      <Image
         src={pokemon.image}
         alt={pokemon.name}
         className="mx-auto h-72 w-72 object-contain "
