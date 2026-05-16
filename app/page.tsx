@@ -6,7 +6,8 @@ import { useQuery } from "@apollo/client/react";
 import { GET_POKEMON_ALL } from "./graphql/getPokemon";
 import { PokemonCardData } from "./type/pokemon";
 import { PokemonCard } from "./pokemon/component/card/PokemonCard ";
-import { Suspense } from "react";
+import Link from "next/link";
+import Image from "next/image";
 const { Title } = Typography;
 const { Search } = Input;
 
@@ -27,11 +28,17 @@ export default function HomePage() {
   return (
     <div className="min-h-screen  ">
       <div className="mx-auto max-w-7xl">
-        {/* Header */}
-        <div className="mb-10 text-center">
-          <Title className="!mb-2 !text-5xl !font-extrabold !bg-gradient-to-br from-yellow-400 from-24% to-blue-500 !bg-clip-text  !text-transparent">
-            Pokémon Explorer
-          </Title>
+        <div className="mt-4 mb-9 text-center">
+          <Link data-testid="home-btn" href={"/"}>
+            <Image
+              className="mx-auto"
+              src="/Pokedex_logo.png"
+              alt="Pokedex Logo"
+              width={300}
+              height={120}
+              priority
+            />
+          </Link>
           <p className="text-lg text-gray-500">Search your favorite Pokémon</p>
         </div>
         <div className="mb-10 flex justify-center">
@@ -44,13 +51,11 @@ export default function HomePage() {
             data-testid="search"
           />
         </div>
-        <Suspense>
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-            {data?.pokemons.map((pokemon) => {
-              return <PokemonCard pokemon={pokemon} key={pokemon.id} />;
-            })}
-          </div>
-        </Suspense>
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+          {data?.pokemons.map((pokemon) => {
+            return <PokemonCard pokemon={pokemon} key={pokemon.id} />;
+          })}
+        </div>
       </div>
     </div>
   );

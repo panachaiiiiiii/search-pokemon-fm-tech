@@ -10,7 +10,7 @@ import { StatsScore } from "../component/PokemonInfo/StatsScore";
 import { CardInfo } from "../component/PokemonInfo/CardInfo";
 import { AttackSkill } from "../component/PokemonInfo/AttackSkill";
 import { Evolutions } from "../component/PokemonInfo/Evolutions";
-
+import { Spin } from 'antd';
 export default function Pokemon() {
   const params = useParams();
   const pokemonName = params.name as string;
@@ -24,7 +24,8 @@ export default function Pokemon() {
   );
   if (loading) {
     return (
-      <div className="flex min-h-screen items-center justify-center text-3xl font-bold">
+      <div className="flex min-h-screen items-center justify-center text-3xl font-bold text-white">
+        <Spin /> 
         Loading...
       </div>
     );
@@ -45,6 +46,7 @@ export default function Pokemon() {
   }
   const pokemon = data.pokemon;
   return (
+    
     <div className="min-h-screen  p-6 ">
       <div className="mx-auto max-w-6xl ">
         <div className="mt-4 mb-9">
@@ -71,5 +73,6 @@ export default function Pokemon() {
         {pokemon.evolutions && <Evolutions pokemon={pokemon} />}
       </div>
     </div>
+    
   );
 }

@@ -18,7 +18,6 @@ export const AttackskillComponent = ({ pokemon, head }: Props) => {
           >
             <div className="flex items-center justify-between">
               <h4 className="font-bold">{attack.name}</h4>
-
               <p className="font-bold">{attack.damage}</p>
             </div>
 
