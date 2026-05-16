@@ -6,7 +6,8 @@ import { useQuery } from "@apollo/client/react";
 
 import { GET_POKEMON_ALL } from "./graphql/getPokemon";
 import { PokemonCardData } from "./type/pokemon";
-import { PokemonCard  } from "./pokemon/component/card/PokemonCard ";
+import { PokemonCard } from "./pokemon/component/card/PokemonCard ";
+import { Suspense } from "react";
 
 const { Title } = Typography;
 const { Search } = Input;
@@ -19,15 +20,9 @@ export default function HomePage() {
     router.push(`/pokemon/${value.toLowerCase()}`);
   };
 
-  const { data, loading, error } = useQuery<PokemonCardData>(GET_POKEMON_ALL);
+  const { data, error } = useQuery<PokemonCardData>(GET_POKEMON_ALL);
 
-  if (loading) {
-    return (
-      <div className="flex min-h-screen items-center justify-center text-2xl font-bold bg-gray-800">
-        Loading...
-      </div>
-    );
-  }
+
 
   if (error) {
     return (
@@ -50,6 +45,7 @@ export default function HomePage() {
         </div>
 
         {/* Search */}
+
         <div className="mb-10 flex justify-center">
           <Search
             placeholder="Search Pokémon..."
@@ -62,11 +58,13 @@ export default function HomePage() {
         </div>
 
         {/* Cards */}
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-          {data?.pokemons.map((pokemon) => {
-            return <PokemonCard pokemon={pokemon} key={pokemon.id} />;
-          })}
-        </div>
+        <Suspense>
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+            {data?.pokemons.map((pokemon) => {
+              return <PokemonCard pokemon={pokemon} key={pokemon.id} />;
+            })}
+          </div>
+        </Suspense>
       </div>
     </div>
   );
