@@ -13,7 +13,7 @@ export const PokemonCard = ({ pokemon }: Props) => {
   return (
     <Link href={`/pokemon/${pokemon.name.toLowerCase()}`}>
       <div
-        className={`overflow-hidden rounded-3xl border-4 border-amber-300  p-3 shadow-lg transition duration-300 hover:-translate-y-2 hover:shadow-2xl bg-white `}
+        className={`overflow-hidden rounded-3xl border-4  border-amber-300  p-3 shadow-lg transition duration-300 hover:-translate-y-2 hover:shadow-2xl bg-white `}
       >
         <div className="flex justify-between">
           {/* Name */}
@@ -31,7 +31,7 @@ export const PokemonCard = ({ pokemon }: Props) => {
         <img
           src={pokemon.image}
           alt={pokemon.name}
-          className="mx-auto h-36 w-36 object-contain "
+          className="mx-auto h-36 w-36 object-contain"
         />
 
         {/* Types */}
@@ -39,7 +39,7 @@ export const PokemonCard = ({ pokemon }: Props) => {
           {pokemon.types.map((type) => (
             <span
               key={type}
-              className={`rounded-full px-3 py-1 text-sm font-medium text-white ${typeColors[type]}`}
+              className={`shadow-md transition  rounded-full px-3 py-1 text-sm font-medium text-white ${typeColors[type]}`}
             >
               {type}
             </span>

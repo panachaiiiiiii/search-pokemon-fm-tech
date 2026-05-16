@@ -23,7 +23,7 @@ export default function HomePage() {
 
   if (loading) {
     return (
-      <div className="flex min-h-screen items-center justify-center text-2xl font-bold">
+      <div className="flex min-h-screen items-center justify-center text-2xl font-bold bg-gray-800">
         Loading...
       </div>
     );
@@ -38,11 +38,11 @@ export default function HomePage() {
   }
 
   return (
-    <div className="min-h-screen bg-red-100  ">
+    <div className="min-h-screen bg-gray-800  ">
       <div className="mx-auto max-w-7xl">
         {/* Header */}
         <div className="mb-10 text-center">
-          <Title className="!mb-2 !text-5xl !font-extrabold">
+          <Title className="!mb-2 !text-5xl !font-extrabold !bg-gradient-to-br from-yellow-400 from-24% to-blue-500 !bg-clip-text  !text-transparent">
             Pokémon Explorer
           </Title>
 
